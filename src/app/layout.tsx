@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${redHatItalic.variable} ${redHat.variable} antialiased`}
+        className={`${redHatItalic.variable} ${redHat.variable} antialiased bg-orange-100/50`}
       >
         {children}
       </body>
