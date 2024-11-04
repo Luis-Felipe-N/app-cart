@@ -1,6 +1,25 @@
+'use client'
+
+import { api } from "@/lib/api";
+import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 
+async function getProducts() {
+  const response = await api.get('products')
+  const data = response.data
+
+  return data
+}
+
 export default function Home() {
+
+  const data = useQuery({
+    queryKey: ['products'],
+    queryFn: getProducts
+  })
+
+  console.log(data)
+
   return (
     <main className="grid grid-cols-5">
       <div className="col-span-3 p-24">
@@ -28,7 +47,7 @@ export default function Home() {
               height={200}
               alt="Picture of the author"
             />
-            <p className="text-bold">Your added items will appear here</p>
+            <p className="font-bold text-orange-800">Your added items will appear here</p>
           </div>
         </div>
       </div>

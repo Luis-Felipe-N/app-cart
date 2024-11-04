@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { QueryProvider } from "./providers/QueryClientProvider";
 
 const redHatItalic = localFont({
   src: "./fonts/RedHatText-Italic-VariableFont_wght.ttf",
@@ -28,7 +29,7 @@ export default function RootLayout({
       <body
         className={`${redHatItalic.variable} ${redHat.variable} antialiased bg-orange-100/50`}
       >
-        {children}
+        <QueryProvider>{children}</QueryProvider>
       </body>
     </html>
   );
